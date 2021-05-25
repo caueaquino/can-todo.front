@@ -1,0 +1,14 @@
+.can-nav-list {
+    min-width: 240px;
+    width: 100%;
+}
+
+.active-navigation-item {
+    background: rgba(233, 30, 99, 0.15);
+    color: #f492b4;
+}
+
+.active-navigation-item:focus {
+    background: rgba(233, 30, 99, 0.15);
+    color: #f492b4;
+}

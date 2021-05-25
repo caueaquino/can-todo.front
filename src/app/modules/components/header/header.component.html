@@ -1,1 +1,45 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+
+    <span class="can-title">CAN</span>
+
+    <span class="can-spacer"></span>
+
+    <span class="can-product">ToDo</span>
+
+    <span class="can-spacer"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+        <mat-icon>more_vert</mat-icon>
+
+    </button>
+
+    <mat-menu #menu="matMenu">
+
+        <button class="can-menu-item" mat-menu-item>
+
+            <mat-icon>account_circle</mat-icon>
+
+            <span>Account</span>
+
+        </button>
+
+        <button class="can-menu-item" mat-menu-item>
+
+            <mat-icon>settings</mat-icon>
+
+            <span>Settings</span>
+
+        </button>
+
+        <button class="can-menu-item" mat-menu-item>
+
+            <mat-icon>logout</mat-icon>
+
+            <span>Logout</span>
+
+        </button>
+
+    </mat-menu>
+
+</mat-toolbar>

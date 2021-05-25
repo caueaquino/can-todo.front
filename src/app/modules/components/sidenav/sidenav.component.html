@@ -1,20 +1,14 @@
 <mat-drawer-container class="can-container" autosize>
 
-    <mat-drawer #drawer class="can-sidenav" mode="side">
+    <mat-drawer #drawer mode="side">
 
-        <p>Auto-resizing sidenav</p>
+        <can-nav-list></can-nav-list>
 
     </mat-drawer>
 
     <div class="can-sidenav-content">
 
-        <!-- <button class="can-sidenav-left-container-button" type="button" mat-button (click)="drawer.toggle()">
-
-            <mat-icon>view_headline</mat-icon>
-
-        </button> -->
-
-        <button class="can-sidenav-button" mat-flat-button color="primary" (click)="drawer.toggle()">
+        <button class="can-sidenav-button" mat-flat-button color="basic" (click)="drawer.toggle()">
         
             <mat-icon>menu</mat-icon>
         

@@ -1,13 +1,10 @@
-import { IUser } from 'src/app/shared/interfaces/user.interface';
-
-
-export class User implements IUser {
+export class User {
 
     public userName: string;
     public email: string;
     public avatar: any;
 
-    constructor(user: IUser) {
+    constructor(user: User) {
         this.userName = user.userName;
         this.email = user.email;
         this.avatar = user.avatar;
