@@ -3,7 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ResumeComponent } from 'src/app/modules/pages/resume/resume.component';
 import { KanbanComponent } from 'src/app/modules/pages/kanban/kanban.component';
+import { ProfileComponent } from 'src/app/modules/pages/profile/profile.component';
+import { SettingsComponent } from 'src/app/modules/pages/settings/settings.component';
 import { TaskListComponent } from 'src/app/modules/pages/task-list/task-list.component';
+import { KanbanProjectComponent } from 'src/app/modules/pages/kanban-project/kanban-project.component';
+import { TaskListProjectComponent } from 'src/app/modules/pages/task-list-project/task-list-project.component';
 
 
 const routes: Routes = [
@@ -13,8 +17,15 @@ const routes: Routes = [
 
       { path: '', redirectTo: 'resume', pathMatch: 'full' },
       { path: 'resume', component: ResumeComponent },
+      
+      { path: 'profile', component: ProfileComponent },
+      { path: 'settings', component:  SettingsComponent },
+
       { path: 'task-list', component: TaskListComponent },
+      { path: 'task-list/:id', component: TaskListProjectComponent },
+
       { path: 'kanban', component: KanbanComponent },
+      { path: 'kanban/:id', component: KanbanProjectComponent },
 
     ]
   },

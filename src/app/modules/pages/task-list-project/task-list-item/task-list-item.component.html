@@ -1,0 +1,39 @@
+<div class="task-list-item">
+    
+    <ng-content class="drag-icon"></ng-content>
+
+    <div class="container-column">
+
+        <span class="task-title">{{task?.name}}</span>
+        
+        <p class="task-description">{{task?.description}}</p>
+        
+    </div>
+    
+    <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu">
+
+        <mat-icon>more_vert</mat-icon>
+
+    </button>
+
+    <mat-menu #menu="matMenu">
+
+        <button mat-menu-item>
+
+            <mat-icon>edit</mat-icon>
+
+            <span>Edit</span>
+
+        </button>
+
+        <button mat-menu-item>
+
+            <mat-icon>delete</mat-icon>
+
+            <span>Delete</span>
+
+        </button>
+
+    </mat-menu>
+
+</div>
