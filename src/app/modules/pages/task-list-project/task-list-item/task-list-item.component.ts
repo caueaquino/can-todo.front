@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { TaskListService } from 'src/app/core/services/task-list.service';
+
 
 @Component({
   selector: 'can-task-list-item',
@@ -8,11 +10,28 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TaskListItemComponent implements OnInit {
 
+  @Input() public taskList: any;
   @Input() public task: any;
 
-  constructor() { }
+  constructor(
+    private _taskListService: TaskListService,
+  ) { }
 
   public ngOnInit(): void {
+  }
+
+  public createTask(): void {
+
+  }
+
+  public updateTask(): void {''
+
+  }
+
+  public deleteTask(id: number): void {
+    this._taskListService.deleteTaskById(this.taskList.id, id).subscribe((res: any) => {
+
+    });
   }
 
 }

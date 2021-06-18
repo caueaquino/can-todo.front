@@ -1,0 +1,25 @@
+<form class="global-search" [formGroup]="stateForm">
+
+    <mat-form-field>
+
+        <mat-icon class="search-button">search</mat-icon>
+
+        <input class="input-search" matInput formControlName="stateGroup" [matAutocomplete]="autoGroup" placeholder="Search">
+
+        <mat-autocomplete #autoGroup="matAutocomplete">
+
+            <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+
+                <mat-option *ngFor="let name of group.names" [value]="name">
+
+                    {{name}}
+
+                </mat-option>
+
+            </mat-optgroup>
+
+        </mat-autocomplete>
+
+    </mat-form-field>
+
+</form>

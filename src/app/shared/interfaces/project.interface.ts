@@ -4,10 +4,11 @@ import { EProjectType } from 'src/app/shared/enums/project-type.enum';
 export interface IProject {
 
     id: number;
-    typeId: EProjectType;
+    projectTypeId: EProjectType;
     name: string;
-    tag: string;
+    tags: Array<string>;
+    targetDate: Date;
+    lastModificationDate: Date;
     creationDate: Date;
-    lastModification: Date;
 
 }

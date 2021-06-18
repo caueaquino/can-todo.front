@@ -2,6 +2,12 @@
 
     <h1 class="task-list-title">{{taskList?.name}}</h1>
 
+
+    <mat-toolbar class="task-list-toolbar">
+        toolbar para opções de gerenciar items da tasklist
+    </mat-toolbar>
+
+
     <cdk-virtual-scroll-viewport [itemSize]="60" class="task-list-virtual-scroll">
 
         <div cdkDropList class="task-list" (cdkDropListDropped)="drop($event)">
@@ -9,15 +15,15 @@
             <div *ngFor="let task of taskList?.tasks" cdkDrag>
 
                 <div class="task-custom-placeholder" *cdkDragPlaceholder></div>
- 
-                <can-task-list-item [task]="task">
-                    
+
+                <can-task-list-item [taskList]="taskList" [task]="task">
+
                     <mat-icon class="drag-icon" cdkDragHandle>drag_indicator</mat-icon>
 
                 </can-task-list-item>
-                
+
             </div>
-            
+
 
         </div>
 

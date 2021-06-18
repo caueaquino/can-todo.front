@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProjectService } from 'src/app/core/services/project.service';
+
+
 @Component({
   selector: 'can-task-list',
   templateUrl: './task-list.component.html',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _projectService: ProjectService,
+    ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.loadTaskLists();
+  }
+
+  private loadTaskLists(): void {
+    this._projectService.getTaskListProjects().subscribe((res) => {
+      console.log(res);
+    });
   }
 
 }

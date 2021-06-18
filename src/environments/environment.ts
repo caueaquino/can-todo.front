@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiProject: 'assets/mock/project.json',
-  apiTaskList: 'assets/mock/task-list.json',
-  apiKanban: 'assets/mock/kanban.json'
+  apiProject: 'http://localhost:3000/projects/',
+  apiTaskList: 'http://localhost:3000/taskLists/',
+  apiKanban: 'http://localhost:3000/kanban/'
 };

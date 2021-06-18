@@ -5,19 +5,21 @@ import { IProject } from 'src/app/shared/interfaces/project.interface';
 export class Project implements IProject {
 
     public id: number;
-    public typeId: EProjectType;
+    public projectTypeId: EProjectType;
     public name: string;
-    public tag: string;
+    public tags: Array<string>;
+    public targetDate: Date;
+    public lastModificationDate: Date;
     public creationDate: Date;
-    public lastModification: Date;
 
     constructor(project: Project) {
         this.id = project.id;
-        this.typeId = project.typeId;
+        this.projectTypeId = project.projectTypeId;
         this.name = project.name;
-        this.tag = project.tag;
+        this.targetDate = project.targetDate;
+        this.tags = project.tags;
+        this.lastModificationDate = project.lastModificationDate;
         this.creationDate = project.creationDate;
-        this.lastModification = project.lastModification;
     }
 
 }

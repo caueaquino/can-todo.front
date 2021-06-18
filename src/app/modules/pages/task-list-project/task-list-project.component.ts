@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -13,18 +14,26 @@ import { TaskListService } from 'src/app/core/services/task-list.service';
 })
 export class TaskListProjectComponent implements OnInit {
 
+  public taskListId: number = 0;
   public taskList: any;
 
   constructor(
-    private taskListService: TaskListService,
-  ) { }
+    private _activatedRoute: ActivatedRoute,
+    private _taskListService: TaskListService,
+  ) {
+    this.getTaskListIdFromRoute();
+  }
 
   public ngOnInit(): void {
     this.loadTaskList();
   }
 
-  public loadTaskList(): void {
-    this.taskListService.getTaskListById(1).subscribe((taskList: TaskList) => {
+  private getTaskListIdFromRoute(): void {
+    this.taskListId = this._activatedRoute.snapshot.params.id;
+  }
+
+  private loadTaskList(): void {
+    this._taskListService.getTaskListById(this.taskListId).subscribe((taskList: TaskList) => {
       this.taskList = new TaskList(taskList);
     });
   }
