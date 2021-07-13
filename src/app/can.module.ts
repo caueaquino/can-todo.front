@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -35,7 +36,9 @@ import { KanbanProjectComponent } from 'src/app/modules/pages/kanban-project/kan
 import { GlobalSearchComponent } from 'src/app/modules/components/global-search/global-search.component';
 import { KanbanItemComponent } from 'src/app/modules/pages/kanban-project/kanban-item/kanban-item.component';
 import { TaskListProjectComponent } from 'src/app/modules/pages/task-list-project/task-list-project.component';
-import { TaskListItemComponent } from 'src/app/modules/pages/task-list-project/task-list-item/task-list-item.component';
+import { TaskListItemComponent } from 'src/app/modules/pages/task-list-project/components/task-list-item/task-list-item.component';
+import { TaskItemFormComponent } from 'src/app/modules/pages/task-list-project/components/task-item-form/task-item-form.component';
+import { TaskListFormComponent } from './modules/pages/task-list-project/components/task-list-form/task-list-form.component';
 
 
 @NgModule({
@@ -54,8 +57,10 @@ import { TaskListItemComponent } from 'src/app/modules/pages/task-list-project/t
     TaskListProjectComponent,
     KanbanItemComponent,
     TaskListItemComponent,
+    TaskItemFormComponent,
     AlertDialogComponent,
     GlobalSearchComponent,
+    TaskListFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +79,7 @@ import { TaskListItemComponent } from 'src/app/modules/pages/task-list-project/t
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatBottomSheetModule,
     MatAutocompleteModule,

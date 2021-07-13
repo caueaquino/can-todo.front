@@ -4,7 +4,99 @@
 
 
     <mat-toolbar class="task-list-toolbar">
-        toolbar para opções de gerenciar items da tasklist
+
+        <button mat-raised-button color="primary" (click)="createTask()">
+
+            <mat-icon>add</mat-icon>
+
+            <span class="new-btn">New</span>
+
+        </button>
+
+        <div class="container-row">
+
+            <can-global-search class="task-search"></can-global-search>
+
+            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu1">
+
+                <mat-icon>swap_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu1="matMenu">
+
+                <button mat-menu-item>
+
+                    <span>Name</span>
+
+                </button>
+                
+                <button mat-menu-item>
+
+                    <span>Description</span>
+
+                </button>
+                
+                <button mat-menu-item>
+
+                    <span>Date</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <span>Focus</span>
+
+                </button>
+
+            </mat-menu>
+
+            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu2">
+
+                <mat-icon>filter_alt</mat-icon>
+
+            </button>
+
+            <mat-menu #menu2="matMenu">
+
+                <button mat-menu-item>
+
+                    <mat-icon>edit</mat-icon>
+
+                    <span>Edit</span>
+
+                </button>
+
+            </mat-menu>
+
+            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu3">
+
+                <mat-icon>settings</mat-icon>
+
+            </button>
+
+            <mat-menu #menu3="matMenu">
+
+                <button mat-menu-item>
+
+                    <mat-icon>edit</mat-icon>
+
+                    <span>Edit</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <mat-icon>delete</mat-icon>
+
+                    <span>Delete</span>
+
+                </button>
+
+            </mat-menu>
+
+        </div>
+
     </mat-toolbar>
 
 

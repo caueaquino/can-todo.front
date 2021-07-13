@@ -1,0 +1,64 @@
+<div class="task-container">
+
+    <mat-toolbar>
+
+        <span>Create Task</span>
+
+        <button mat-icon-button (click)="closeBottomSheet()">
+
+            <mat-icon>close</mat-icon>
+
+        </button>
+
+    </mat-toolbar>
+
+
+    <form [formGroup]="form">
+    
+        <mat-form-field appearance="fill">
+    
+            <mat-label>Name</mat-label>
+    
+            <input matInput formControlName="name">
+            
+            <mat-error *ngIf="F_name.hasError('required')">
+            
+                Name is <strong>required</strong>
+            
+            </mat-error>
+        
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+    
+            <mat-label>Description</mat-label>
+    
+            <input matInput formControlName="description">
+            
+            <mat-error *ngIf="F_description.hasError('required')">
+            
+                Description is <strong>required</strong>
+            
+            </mat-error>
+        
+        </mat-form-field>
+    
+    </form>
+
+    <div class="button-row">
+
+        <button mat-raised-button (click)="closeBottomSheet()">
+
+            <span class="new-btn">Cancel</span>
+
+        </button>
+
+        <button mat-raised-button color="primary" (click)="createTaskItem()">
+
+            <span class="new-btn">Create</span>
+
+        </button>
+
+    </div>
+
+</div>

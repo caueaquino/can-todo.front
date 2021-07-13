@@ -2,61 +2,78 @@
     "projects": [
         {
             "id": 1,
-            "taskListId": 1,
             "projectTypeId": 1,
             "name": "Trabalho de Conclusão de Curso (TCC)",
-            "targetDate": null
+            "description": "",
+            "tags": [],
+            "targetDate": null,
+            "lastModificationDate": "Tue, 28 May 2021 09:11:47 GMT",
+            "creationDate": "Tue, 28 May 2021 09:11:47 GMT"
         }
     ],
-    "taskLists": [
+    "taskListItems": [
         {
             "id": 1,
             "projectId": 1,
-            "name": "Trabalho de Conclusão de Curso (TCC)",
-            "tasks": [
-                {
-                    "id": 1,
-                    "name": "Escrever proposta TCC 1",
-                    "description": "Descrição escrever proposta TCC 1.",
-                    "creationDate": "Tue, 28 May 2021 12:25:11 GMT"
-                },
-                {
-                    "id": 2,
-                    "name": "Estruturar texto da proposta do trabalho",
-                    "description": "Descrição para estruturar o trabalho de proposta.",
-                    "creationDate": "Tue, 28 May 2021 12:25:19 GMT"
-                },
-                {
-                    "id": 3,
-                    "name": "Desenvolver website de gerenciamento de tarefas",
-                    "description": "Realizar o desenvolvimento do website de gerenciamento de tarefas em angular.",
-                    "creationDate": "Tue, 28 May 2021 12:25:28 GMT"
-                },
-                {
-                    "id": 4,
-                    "name": "Elaborar telas do website de gerenciamento de tarefas que será utilizado nos testes de GUI",
-                    "description": "Pensar em telas e funcionalidades para utilizar no website como forma de teste automatizada.",
-                    "creationDate": "Tue, 28 May 2021 12:25:34 GMT"
-                },
-                {
-                    "id": 5,
-                    "name": "GUI teste utilizandao a ferramenta Cypress",
-                    "description": "Desenvolver testes de interface gráfica do usuário utilizando a ferramenta Cypress no website de gerenciamento de tarefas desenvolvido.",
-                    "creationDate": "Tue, 28 May 2021 12:25:57 GMT"
-                },
-                {
-                    "id": 6,
-                    "name": "Desenvolvimento de testes de GUI na GUITAR",
-                    "description": "Desenvolver testes de interface gráfica utilizando a GUITAR no website de gerenciamento de tarefas ToDo.",
-                    "creationDate": "Tue, 28 May 2021 12:26:01 GMT"
-                },
-                {
-                    "id": 7,
-                    "name": "Comparação entre a GUITAR e a Cypress",
-                    "description": "Realizar analise comparativa entre as duas ferramentas de testes com base nos testes desenvolvidos e na execução do desenvolvimento dos testes de GUI.",
-                    "creationDate": "Tue, 28 May 2021 12:26:32 GMT"
-                }
-            ]
+            "name": "Escrever proposta TCC 1",
+            "description": "Descrição escrever proposta TCC 1.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:25:11 GMT",
+            "creationDate": "Tue, 28 May 2021 12:25:11 GMT"
+        },
+        {
+            "id": 2,
+            "projectId": 1,
+            "name": "Estruturar texto da proposta do trabalho",
+            "description": "Descrição para estruturar o trabalho de proposta.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:25:19 GMT",
+            "creationDate": "Tue, 28 May 2021 12:25:19 GMT"
+        },
+        {
+            "id": 3,
+            "projectId": 1,
+            "name": "Desenvolver website de gerenciamento de tarefas",
+            "description": "Realizar o desenvolvimento do website de gerenciamento de tarefas em angular.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:25:28 GMT",
+            "creationDate": "Tue, 28 May 2021 12:25:28 GMT"
+        },
+        {
+            "id": 4,
+            "projectId": 1,
+            "name": "Elaborar telas do website de gerenciamento de tarefas que será utilizado nos testes de GUI",
+            "description": "Pensar em telas e funcionalidades para utilizar no website como forma de teste automatizada.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:25:34 GMT",
+            "creationDate": "Tue, 28 May 2021 12:25:34 GMT"
+        },
+        {
+            "id": 5,
+            "projectId": 1,
+            "name": "GUI teste utilizandao a ferramenta Cypress",
+            "description": "Desenvolver testes de interface gráfica do usuário utilizando a ferramenta Cypress no website de gerenciamento de tarefas desenvolvido.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:25:57 GMT",
+            "creationDate": "Tue, 28 May 2021 12:25:57 GMT"
+        },
+        {
+            "id": 6,
+            "projectId": 1,
+            "name": "Desenvolvimento de testes de GUI na GUITAR",
+            "description": "Desenvolver testes de interface gráfica utilizando a GUITAR no website de gerenciamento de tarefas ToDo.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:26:01 GMT",
+            "creationDate": "Tue, 28 May 2021 12:26:01 GMT"
+        },
+        {
+            "id": 7,
+            "projectId": 1,
+            "name": "Comparação entre a GUITAR e a Cypress",
+            "description": "Realizar analise comparativa entre as duas ferramentas de testes com base nos testes desenvolvidos e na execução do desenvolvimento dos testes de GUI.",
+            "tags": [],
+            "lastModificationDate": "Tue, 28 May 2021 12:26:32 GMT",
+            "creationDate": "Tue, 28 May 2021 12:26:32 GMT"
         }
     ],
     "tags": [

@@ -1,23 +1,26 @@
+import { Tag } from 'src/app/shared/models/tag.model';
+
+import { IKanban } from 'src/app/shared/interfaces/kanban.interface';
+
 import { EProjectType } from 'src/app/shared/enums/project-type.enum';
-import { IProject } from 'src/app/shared/interfaces/project.interface';
 
 
-export class Kanban implements IProject {
+export class Kanban implements IKanban {
 
     public id: number;
-    public typeId: EProjectType;
+    public projectTypeId: EProjectType;
     public name: string;
-    public tag: string;
+    public tags: Array<Tag>;
     public creationDate: Date;
-    public lastModification: Date;
+    public lastModificationDate: Date;
 
-    constructor(kanban: Kanban) {
+    constructor(kanban: IKanban) {
         this.id = kanban.id;
-        this.typeId = EProjectType.KANBAN;
+        this.projectTypeId = EProjectType.KANBAN;
         this.name = kanban.name;
-        this.tag = kanban.tag;
+        this.tags = kanban.tags;
         this.creationDate = kanban.creationDate;
-        this.lastModification = kanban.lastModification;
+        this.lastModificationDate = kanban.lastModificationDate;
     }
 
 }

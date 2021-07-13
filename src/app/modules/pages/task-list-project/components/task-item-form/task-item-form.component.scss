@@ -1,0 +1,37 @@
+.task-container {
+    height: calc(80vh - 16px);
+
+    mat-toolbar {
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% + 32px);
+        margin: -8px 0px 0px -16px;
+        height: 80px;
+        box-shadow: 0px 2px 3px #00000030;
+
+        span {
+            padding-left: 16px;
+        }
+    }
+
+    form {
+        padding-top: 16px;
+        display: flex;
+        flex-direction: column;
+
+        mat-form-field {
+            padding-top: 16px;
+        }
+    }
+
+    .button-row {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 24px;
+
+        button {
+            width: 120px;
+            margin-left: 16px;
+        }
+    }
+}

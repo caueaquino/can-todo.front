@@ -17,12 +17,15 @@ const routes: Routes = [
 
       { path: '', redirectTo: 'resume', pathMatch: 'full' },
       { path: 'resume', component: ResumeComponent },
-      
+
       { path: 'profile', component: ProfileComponent },
-      { path: 'settings', component:  SettingsComponent },
+      { path: 'settings', component: SettingsComponent },
 
       { path: 'task-list', component: TaskListComponent },
       { path: 'task-list/:id', component: TaskListProjectComponent },
+      { path: 'task-list/:id/edit-project', component: TaskListProjectComponent },
+      { path: 'task-list/:id/edit-task/:id', component: TaskListProjectComponent },
+      { path: 'task-list/:id/create-task', component: TaskListProjectComponent },
 
       { path: 'kanban', component: KanbanComponent },
       { path: 'kanban/:id', component: KanbanProjectComponent },
