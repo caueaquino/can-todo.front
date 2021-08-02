@@ -1,0 +1,69 @@
+<div class="sign-in">
+
+    <mat-card class="card">
+
+        <form [formGroup]="signInForm">
+
+            <!-- EMAIL -->
+            <mat-form-field appearance="fill">
+
+                <mat-label>Email</mat-label>
+
+                <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher">
+
+                <mat-error *ngIf="F_email.hasError('email') && !F_email.hasError('required')">
+
+                    Please enter a valid email address
+
+                </mat-error>
+
+                <mat-error *ngIf="F_email.hasError('required')">
+
+                    Email is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+            <!-- PASSWORD -->
+
+            <mat-form-field appearance="fill">
+
+                <mat-label>Password</mat-label>
+
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+                    [errorStateMatcher]="matcher">
+
+                <button mat-icon-button matSuffix (click)="changePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                </button>
+
+                <mat-error *ngIf="F_password.hasError('required')">
+
+                    Password is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+            <div class="button-row"> 
+    
+                <button mat-button>Forgot password?</button>
+                
+                <button mat-raised-button color="primary" (click)="signIn()">Sign in</button>
+                
+            </div>
+
+            <div class="button-row">
+
+                <a (click)="goToSignUp()" class="sign-up-button">Don't have an account? Click here</a>
+
+            </div>
+
+        </form>
+            
+    </mat-card>
+
+</div>

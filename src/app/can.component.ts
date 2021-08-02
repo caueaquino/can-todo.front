@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { LoadingService } from 'src/app/core/services/loading.service';
+
 
 @Component({
   selector: 'can-root',
@@ -8,6 +10,8 @@ import { Component } from '@angular/core';
 })
 export class CanComponent {
 
-  constructor() { }
+  constructor(
+    public loadingService: LoadingService,
+  ) { }
 
 }

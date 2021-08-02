@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 import { TaskList } from 'src/app/shared/models/task-list.model';
@@ -18,29 +18,26 @@ export class TaskListService {
   ) { }
 
   public getTaskListById(id: number): Observable<ITaskList> {
-    return this._httpClient.get<TaskList>(`${environment.apiUrl}projects/${id}`);
+    return this._httpClient.get<TaskList>(`${environment.apiUrl}projects/${id}`).pipe(take(1));
   }
 
   public getTasksByTaskListId(id: number): Observable<Array<ITaskListItem>> {
-    return this._httpClient.get<Array<ITaskListItem>>(`${environment.apiUrl}taskListItems`).pipe(map((res: Array<ITaskListItem>) => {
-      return res.filter((taskItem: ITaskListItem) => taskItem.projectId == id);
-    }));
+    return this._httpClient.get<Array<ITaskListItem>>(`${environment.apiUrl}taskListItems`).pipe(
+      map((res: Array<ITaskListItem>) => {
+        return res.filter((taskItem: ITaskListItem) => taskItem.projectId == id);
+      }));
   }
 
   public createTask(payload: any): Observable<any> {
-    return this._httpClient.post(`${environment.apiUrl}`, payload);
+    return this._httpClient.post(`${environment.apiUrl}taskListItems`, payload);
   }
 
   public updateTask(payload: any): Observable<any> {
     return this._httpClient.put(`${environment.apiUrl}`, payload);
   }
 
-  public deleteTaskById(taskListId: number, taskId: number): Observable<any> {
-    return this._httpClient.delete(`${environment.apiUrl}${taskListId}/tasks/${taskId}`);
-  }
-
-  public deleteTaskListById(id: number): Observable<any> {
-    return this._httpClient.delete(`${environment.apiUrl}${id}`);
+  public deleteTaskById(id: number): Observable<any> {
+    return this._httpClient.delete(`${environment.apiUrl}taskListItems/${id}`);
   }
 
 }

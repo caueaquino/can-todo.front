@@ -1,7 +1,3 @@
-<can-header></can-header>
+<router-outlet></router-outlet>
 
-<can-sidenav>
-
-    <router-outlet></router-outlet>
-
-</can-sidenav>
+<can-loading *ngIf="loadingService?.loading"></can-loading>

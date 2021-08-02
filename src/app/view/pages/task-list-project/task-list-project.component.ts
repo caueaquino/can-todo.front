@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
+
 import { TaskList } from 'src/app/shared/models/task-list.model';
 import { TaskListItem } from 'src/app/shared/models/task-list-item.model';
-import { TaskListFormComponent } from 'src/app/modules/pages/task-list-project/components/task-list-form/task-list-form.component';
-import { TaskItemFormComponent } from 'src/app/modules/pages/task-list-project/components/task-item-form/task-item-form.component';
 
 import { TaskListService } from 'src/app/core/services/task-list.service';
-import { ERoutePath } from 'src/app/shared/enums/route-path.enum';
 import { ITaskListItem } from 'src/app/shared/interfaces/task-list-item.interface';
+
+import { TaskListFormComponent } from 'src/app/view/pages/task-list-project/components/task-list-form/task-list-form.component';
+import { TaskItemFormComponent } from 'src/app/view/pages/task-list-project/components/task-item-form/task-item-form.component';
 
 
 @Component({
@@ -34,14 +36,14 @@ export class TaskListProjectComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.loadTaskList();
+    this._loadTaskList();
   }
 
   private getTaskListIdFromRoute(): void {
     this.taskListId = this._activatedRoute.snapshot.params.id;
   }
 
-  private loadTaskList(): void {
+  private _loadTaskList(): void {
     this._taskListService.getTaskListById(this.taskListId).subscribe((taskList: TaskList) => {
       this.taskList = new TaskList(taskList);
       this._taskListService.getTasksByTaskListId(this.taskListId).subscribe((taskItemList: Array<ITaskListItem>) => {
@@ -54,18 +56,25 @@ export class TaskListProjectComponent implements OnInit {
     moveItemInArray(this.taskList.tasks, event.previousIndex, event.currentIndex);
   }
 
-  public createTask(): void {
-    this._router.navigate([`${ERoutePath.TASK_LIST}/${this.taskListId}${ERoutePath.CREATE_TASK}`]);
-    this._bottomSheet.open(TaskItemFormComponent).afterDismissed().subscribe(() => {
-      this._router.navigate([`${ERoutePath.TASK_LIST}/${this.taskListId}`]);
+  public editTaskList(): void {
+    this._bottomSheet.open(TaskListFormComponent).afterDismissed().subscribe(() => {
+      this._loadTaskList();
     });
   }
 
-  public editTask(): void {
-    this._router.navigate([`${ERoutePath.TASK_LIST}/${this.taskListId}${ERoutePath.EDIT_PROJECT}`]);
-    this._bottomSheet.open(TaskListFormComponent).afterDismissed().subscribe(() => {
-      this._router.navigate([`${ERoutePath.TASK_LIST}/${this.taskListId}`]);
+  public createTask(): void {
+    const bottomSheet = this._bottomSheet.open(TaskItemFormComponent)
+    bottomSheet.instance.F_projectId.setValue(Number(this.taskListId));
+    bottomSheet.instance.isEdition = false;
+    bottomSheet.afterDismissed().subscribe(() => {
+      this._loadTaskList();
     });
+  }
+
+  public handleOutputEvent(event: any): void {
+    if (event === 'refresh') {
+      this._loadTaskList();
+    }
   }
 
 }

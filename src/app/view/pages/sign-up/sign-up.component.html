@@ -1,0 +1,114 @@
+<div class="sign-un">
+
+    <mat-card class="card">
+
+        <h3>Fill the fieds bellow to complete the register</h3>
+
+        <form [formGroup]="signUpForm">
+
+            <!-- USERNAME -->
+            <mat-form-field appearance="fill">
+
+                <mat-label>Username</mat-label>
+
+                <input type="text" matInput formControlName="userName" [errorStateMatcher]="matcher">
+
+                <mat-error *ngIf="F_userName.hasError('minlength') && !F_userName.hasError('required')">
+
+                    Password need at least 4 characters
+                    
+                </mat-error>
+                
+                <mat-error *ngIf="F_userName.hasError('required')">
+
+                    Username is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+            <!-- EMAIL -->
+            <mat-form-field appearance="fill">
+
+                <mat-label>Email</mat-label>
+
+                <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher">
+
+                <mat-error *ngIf="F_email.hasError('email') && !F_email.hasError('required')">
+
+                    Please enter a valid email address
+
+                </mat-error>
+
+                <mat-error *ngIf="F_email.hasError('required')">
+
+                    Email is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+
+            <!-- Phone -->
+            <mat-form-field appearance="fill">
+
+                <mat-label>Phone</mat-label>
+
+                <input type="text" matInput formControlName="phone" prefix="+55 " mask="(00) 00000 0000||(00) 0000 0000" [dropSpecialCharacters]="false" [errorStateMatcher]="matcher">
+
+                <mat-error *ngIf="F_userName.hasError('minlength') && !F_userName.hasError('required')">
+
+                    Phone need at least 11 digits
+                    
+                </mat-error>
+                
+                <mat-error *ngIf="F_userName.hasError('required')">
+
+                    Username is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+            <!-- PASSWORD -->
+
+            <mat-form-field appearance="fill">
+
+                <mat-label>Password</mat-label>
+
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+                    [errorStateMatcher]="matcher">
+
+                <button mat-icon-button matSuffix (click)="changePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+                </button>
+
+                <mat-error *ngIf="F_password.hasError('minlength') && !F_password.hasError('required')">
+
+                    Password need at least 6 characters
+                    
+                </mat-error>
+                
+                <mat-error *ngIf="F_password.hasError('required')">
+                    
+                    Password is <strong>required</strong>
+
+                </mat-error>
+
+            </mat-form-field>
+
+            <div class="button-row"> 
+    
+                <button mat-button (click)="cancelSignUp()">Cancel</button>
+                
+                <button mat-raised-button color="primary" (click)="signUp()">Sign up</button>
+                
+            </div>
+
+        </form>
+            
+    </mat-card>
+
+</div>

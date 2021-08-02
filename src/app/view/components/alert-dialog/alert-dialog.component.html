@@ -1,0 +1,15 @@
+<div class="alert-dialog">
+
+    <h1 mat-dialog-title>{{content.title}}</h1>
+
+    <div mat-dialog-content>{{content.message}}</div>
+
+    <div class="buttons-row" mat-dialog-actions>
+
+        <button *ngIf="content.firstButton" mat-button (click)="confirmButton()">{{content.firstButton}}</button>
+
+        <button mat-button mat-dialog-close>{{content.secondButton}}</button>
+
+    </div>
+
+</div>

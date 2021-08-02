@@ -108,7 +108,7 @@
 
                 <div class="task-custom-placeholder" *cdkDragPlaceholder></div>
 
-                <can-task-list-item [taskList]="taskList" [task]="task">
+                <can-task-list-item [taskList]="taskList" [task]="task" (taskListEvent)="handleOutputEvent($event)">
 
                     <mat-icon class="drag-icon" cdkDragHandle>drag_indicator</mat-icon>
 

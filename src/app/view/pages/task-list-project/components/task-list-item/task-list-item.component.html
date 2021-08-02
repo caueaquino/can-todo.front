@@ -20,7 +20,7 @@
 
     <mat-menu #menu="matMenu">
 
-        <button mat-menu-item>
+        <button mat-menu-item (click)="editTask()">
 
             <mat-icon>edit</mat-icon>
 
@@ -28,7 +28,7 @@
 
         </button>
 
-        <button mat-menu-item (click)="deleteTask(task?.id)">
+        <button mat-menu-item (click)="deleteTask(task?.id!)">
 
             <mat-icon>delete</mat-icon>
 

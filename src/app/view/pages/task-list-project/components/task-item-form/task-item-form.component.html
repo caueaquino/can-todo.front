@@ -2,7 +2,7 @@
 
     <mat-toolbar>
 
-        <span>Create Task</span>
+        <span>{{isEdition ? 'Edit' : 'Create'}} Task</span>
 
         <button mat-icon-button (click)="closeBottomSheet()">
 
@@ -55,7 +55,7 @@
 
         <button mat-raised-button color="primary" (click)="createTaskItem()">
 
-            <span class="new-btn">Create</span>
+            <span class="new-btn">Confirm</span>
 
         </button>
 
