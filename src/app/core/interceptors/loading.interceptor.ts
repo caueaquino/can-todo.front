@@ -17,6 +17,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<any> {
     return next.handle(request)
       .pipe(
+        delay(100),
         tap((res: any) => {
           if (res instanceof HttpResponse) {
             this._loadingService.removeLoadingRequest(request.url);

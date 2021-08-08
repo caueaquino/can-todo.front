@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -23,9 +22,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-
 import { NgxMaskModule } from 'ngx-mask';
-
 
 import { CanRoutingModule } from 'src/app/can-routing.module';
 
@@ -53,9 +50,10 @@ import { KanbanProjectComponent } from 'src/app/view/pages/kanban-project/kanban
 import { GlobalSearchComponent } from 'src/app/view/components/global-search/global-search.component';
 import { KanbanItemComponent } from 'src/app/view/pages/kanban-project/kanban-item/kanban-item.component';
 import { TaskListProjectComponent } from 'src/app/view/pages/task-list-project/task-list-project.component';
-import { TaskListItemComponent } from 'src/app/view/pages/task-list-project/components/task-list-item/task-list-item.component';
+import { TaskItemComponent } from 'src/app/view/pages/task-list-project/components/task-item/task-item.component';
+import { TaskListFormComponent } from 'src/app/view/pages/task-list/components/task-list-form/task-list-form.component';
+import { TaskListItemComponent } from 'src/app/view/pages/task-list/components/task-list-item/task-list-item.component';
 import { TaskItemFormComponent } from 'src/app/view/pages/task-list-project/components/task-item-form/task-item-form.component';
-import { TaskListFormComponent } from 'src/app/view/pages/task-list-project/components/task-list-form/task-list-form.component';
 
 
 @NgModule({
@@ -73,14 +71,15 @@ import { TaskListFormComponent } from 'src/app/view/pages/task-list-project/comp
     LoadingComponent,
     TaskListComponent,
     SettingsComponent,
+    TaskItemComponent,
     KanbanItemComponent,
     AuthLayoutComponent,
     MainLayoutComponent,
     AlertDialogComponent,
-    TaskListItemComponent,
     TaskItemFormComponent,
     GlobalSearchComponent,
     TaskListFormComponent,
+    TaskListItemComponent,
     KanbanProjectComponent,
     TaskListProjectComponent,
   ],

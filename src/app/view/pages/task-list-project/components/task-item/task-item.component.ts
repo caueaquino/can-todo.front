@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-
 import { MatDialog } from '@angular/material/dialog';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
+import { Project } from 'src/app/shared/models/project.model';
 
 import { TaskListService } from 'src/app/core/services/task-list.service';
 
-import { ITaskList } from 'src/app/shared/interfaces/task-list.interface';
 import { ITaskListItem } from 'src/app/shared/interfaces/task-list-item.interface';
 
 import { AlertDialogComponent } from 'src/app/view/components/alert-dialog/alert-dialog.component';
@@ -15,13 +14,13 @@ import { TaskItemFormComponent } from 'src/app/view/pages/task-list-project/comp
 
 
 @Component({
-  selector: 'can-task-list-item',
-  templateUrl: './task-list-item.component.html',
-  styleUrls: ['./task-list-item.component.scss']
+  selector: 'can-task-item',
+  templateUrl: './task-item.component.html',
+  styleUrls: ['./task-item.component.scss']
 })
-export class TaskListItemComponent {
+export class TaskItemComponent {
 
-  @Input() public taskList!: ITaskList;
+  @Input() public taskList!: Project;
   @Input() public task!: ITaskListItem;
 
   @Output() taskListEvent: EventEmitter<string> = new EventEmitter<string>();

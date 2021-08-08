@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
-import { TaskList } from 'src/app/shared/models/task-list.model';
-import { ITaskList } from 'src/app/shared/interfaces/task-list.interface';
 import { ITaskListItem } from 'src/app/shared/interfaces/task-list-item.interface';
+import { Project } from 'src/app/shared/models/project.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -16,10 +15,6 @@ export class TaskListService {
   constructor(
     private _httpClient: HttpClient
   ) { }
-
-  public getTaskListById(id: number): Observable<ITaskList> {
-    return this._httpClient.get<TaskList>(`${environment.apiUrl}projects/${id}`).pipe(take(1));
-  }
 
   public getTasksByTaskListId(id: number): Observable<Array<ITaskListItem>> {
     return this._httpClient.get<Array<ITaskListItem>>(`${environment.apiUrl}taskListItems`).pipe(
@@ -33,7 +28,7 @@ export class TaskListService {
   }
 
   public updateTask(payload: any): Observable<any> {
-    return this._httpClient.put(`${environment.apiUrl}`, payload);
+    return this._httpClient.put(`${environment.apiUrl}taskListItems/${payload.id}`, payload);
   }
 
   public deleteTaskById(id: number): Observable<any> {

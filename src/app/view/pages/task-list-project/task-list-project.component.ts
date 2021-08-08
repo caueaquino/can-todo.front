@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
-
-import { TaskList } from 'src/app/shared/models/task-list.model';
+import { Project } from 'src/app/shared/models/project.model';
 import { TaskListItem } from 'src/app/shared/models/task-list-item.model';
 
+import { ProjectService } from 'src/app/core/services/project.service';
 import { TaskListService } from 'src/app/core/services/task-list.service';
+
 import { ITaskListItem } from 'src/app/shared/interfaces/task-list-item.interface';
 
-import { TaskListFormComponent } from 'src/app/view/pages/task-list-project/components/task-list-form/task-list-form.component';
 import { TaskItemFormComponent } from 'src/app/view/pages/task-list-project/components/task-item-form/task-item-form.component';
 
 
@@ -30,6 +29,7 @@ export class TaskListProjectComponent implements OnInit {
     private _router: Router,
     private _bottomSheet: MatBottomSheet,
     private _activatedRoute: ActivatedRoute,
+    private _projectService: ProjectService,
     private _taskListService: TaskListService,
   ) {
     this.getTaskListIdFromRoute();
@@ -44,8 +44,8 @@ export class TaskListProjectComponent implements OnInit {
   }
 
   private _loadTaskList(): void {
-    this._taskListService.getTaskListById(this.taskListId).subscribe((taskList: TaskList) => {
-      this.taskList = new TaskList(taskList);
+    this._projectService.getProjectById(this.taskListId).subscribe((taskList: Project) => {
+      this.taskList = new Project(taskList);
       this._taskListService.getTasksByTaskListId(this.taskListId).subscribe((taskItemList: Array<ITaskListItem>) => {
         this.taskList.tasks = taskItemList;
       });
@@ -54,12 +54,6 @@ export class TaskListProjectComponent implements OnInit {
 
   public drop(event: CdkDragDrop<TaskListItem[]>) {
     moveItemInArray(this.taskList.tasks, event.previousIndex, event.currentIndex);
-  }
-
-  public editTaskList(): void {
-    this._bottomSheet.open(TaskListFormComponent).afterDismissed().subscribe(() => {
-      this._loadTaskList();
-    });
   }
 
   public createTask(): void {

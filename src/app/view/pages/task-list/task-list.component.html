@@ -1,1 +1,107 @@
-<p>task-list works!</p>
+<div class="task-list">
+
+    <h1 class="task-list-title">Board - Task list</h1>
+
+    <mat-toolbar class="task-list-toolbar">
+
+        <button mat-raised-button color="primary" (click)="createProject()">
+
+            <mat-icon>add</mat-icon>
+
+            <span class="new-btn">New</span>
+
+        </button>
+
+        <div class="container-row">
+
+            <can-global-search class="task-search"></can-global-search>
+
+            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu1">
+
+                <mat-icon>swap_vert</mat-icon>
+
+            </button>
+
+            <mat-menu #menu1="matMenu">
+
+                <button mat-menu-item>
+
+                    <span>Name</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <span>Description</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <span>Date</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <span>Focus</span>
+
+                </button>
+
+            </mat-menu>
+
+            <mat-menu #menu2="matMenu">
+
+                <button mat-menu-item>
+
+                    <mat-icon>edit</mat-icon>
+
+                    <span>Edit</span>
+
+                </button>
+
+            </mat-menu>
+
+            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu3">
+
+                <mat-icon>settings</mat-icon>
+
+            </button>
+
+            <mat-menu #menu3="matMenu">
+
+                <button mat-menu-item>
+
+                    <mat-icon>edit</mat-icon>
+
+                    <span>Edit</span>
+
+                </button>
+
+                <button mat-menu-item>
+
+                    <mat-icon>delete</mat-icon>
+
+                    <span>Delete</span>
+
+                </button>
+
+            </mat-menu>
+
+        </div>
+
+    </mat-toolbar>
+
+    <cdk-virtual-scroll-viewport [itemSize]="60" class="task-list-virtual-scroll">
+
+        <div *ngFor="let taskList of projects">
+
+            <can-task-list-item [taskList]="taskList" (taskListEvent)="handleOutputEvent($event)">
+
+            </can-task-list-item>
+
+        </div>
+
+    </cdk-virtual-scroll-viewport>
+
+</div>

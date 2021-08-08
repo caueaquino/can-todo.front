@@ -2,7 +2,6 @@
 
     <h1 class="task-list-title">{{taskList?.name}}</h1>
 
-
     <mat-toolbar class="task-list-toolbar">
 
         <button mat-raised-button color="primary" (click)="createTask()">
@@ -30,13 +29,13 @@
                     <span>Name</span>
 
                 </button>
-                
+
                 <button mat-menu-item>
 
                     <span>Description</span>
 
                 </button>
-                
+
                 <button mat-menu-item>
 
                     <span>Date</span>
@@ -51,21 +50,21 @@
 
             </mat-menu>
 
-            <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu2">
+            <!-- <button class="task-context-menu" mat-icon-button [matMenuTriggerFor]="menu2">
 
                 <mat-icon>filter_alt</mat-icon>
 
-            </button>
+            </button> -->
 
             <mat-menu #menu2="matMenu">
 
-                <button mat-menu-item>
+                <!-- <button mat-menu-item>
 
                     <mat-icon>edit</mat-icon>
 
                     <span>Edit</span>
 
-                </button>
+                </button> -->
 
             </mat-menu>
 
@@ -108,11 +107,11 @@
 
                 <div class="task-custom-placeholder" *cdkDragPlaceholder></div>
 
-                <can-task-list-item [taskList]="taskList" [task]="task" (taskListEvent)="handleOutputEvent($event)">
+                <can-task-item [taskList]="taskList" [task]="task" (taskListEvent)="handleOutputEvent($event)">
 
                     <mat-icon class="drag-icon" cdkDragHandle>drag_indicator</mat-icon>
 
-                </can-task-list-item>
+                </can-task-item>
 
             </div>
 

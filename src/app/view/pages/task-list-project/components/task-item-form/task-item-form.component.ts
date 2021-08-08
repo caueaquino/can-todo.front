@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { MatDialog } from '@angular/material/dialog';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 import { TaskListService } from 'src/app/core/services/task-list.service';
+import { AlertDialogComponent } from 'src/app/view/components/alert-dialog/alert-dialog.component';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { TaskListService } from 'src/app/core/services/task-list.service';
   templateUrl: './task-item-form.component.html',
   styleUrls: ['./task-item-form.component.scss']
 })
-export class TaskItemFormComponent implements OnInit {
+export class TaskItemFormComponent {
 
   private _taskId: number = -1;
 
@@ -28,6 +30,7 @@ export class TaskItemFormComponent implements OnInit {
   });
 
   constructor(
+    private _matDialog: MatDialog,
     private _formBuilder: FormBuilder,
     private _taskListService: TaskListService,
     private _bottomSheetRef: MatBottomSheetRef<TaskItemFormComponent>,
@@ -45,10 +48,15 @@ export class TaskItemFormComponent implements OnInit {
 
   public get F_creationDate(): AbstractControl { return this.form.get('creationDate')!; }
 
-  public ngOnInit(): void {
+  public handleSaveTaskItem(): void {
+    if (this.isEdition) {
+      this._updateTaskItem();
+      return;
+    }
+    this._createTaskItem();
   }
 
-  public createTaskItem(): void {
+  private _createTaskItem(): void {
     if (this.form.invalid) {
       return;
     }
@@ -56,19 +64,23 @@ export class TaskItemFormComponent implements OnInit {
     this.F_creationDate.setValue(new Date());
     const payload = this.form.getRawValue();
     this._taskListService.createTask(payload).subscribe(() => {
-
+      const dialog = this._matDialog.open(AlertDialogComponent);
+      dialog.componentInstance.content.title = 'Success';
+      dialog.componentInstance.content.message = 'Task item was created successfully.';
+      dialog.afterClosed().subscribe(() => this.closeBottomSheet());
     });
   }
 
-  public updateTaskItem(): void {
+  private _updateTaskItem(): void {
     if (this.form.invalid) {
       return;
     }
     const payload = { id: this._taskId, ...this.form.getRawValue() };
-    console.log(payload);
-    return;
     this._taskListService.updateTask(payload).subscribe(() => {
-
+      const dialog = this._matDialog.open(AlertDialogComponent);
+      dialog.componentInstance.content.title = 'Success';
+      dialog.componentInstance.content.message = 'Task item was updated successfully.';
+      dialog.afterClosed().subscribe(() => this.closeBottomSheet());
     });
   }
 

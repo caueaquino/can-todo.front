@@ -8,8 +8,10 @@ export interface IProject {
     id: number;
     projectTypeId: EProjectType;
     name: string;
+    description: string;
     tags: Array<ITag>;
     targetDate: Date;
+    done: boolean;
     lastModificationDate: Date;
     creationDate: Date;
 

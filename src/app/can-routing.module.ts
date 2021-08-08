@@ -28,17 +28,17 @@ const routes: Routes = [
       {
         path: 'todo', children: [
 
-          { path: '', redirectTo: 'resume', pathMatch: 'full' },
-          { path: 'resume', component: ResumeComponent },
+          { path: '', redirectTo: 'task-list', pathMatch: 'full' },
+          // { path: 'resume', component: ResumeComponent },
 
-          { path: 'profile', component: ProfileComponent },
-          { path: 'settings', component: SettingsComponent },
+          // { path: 'profile', component: ProfileComponent },
+          // { path: 'settings', component: SettingsComponent },
 
           { path: 'task-list', component: TaskListComponent },
           { path: 'task-list/:id', component: TaskListProjectComponent },
 
-          { path: 'kanban', component: KanbanComponent },
-          { path: 'kanban/:id', component: KanbanProjectComponent },
+          // { path: 'kanban', component: KanbanComponent },
+          // { path: 'kanban/:id', component: KanbanProjectComponent },
 
         ]
       }
